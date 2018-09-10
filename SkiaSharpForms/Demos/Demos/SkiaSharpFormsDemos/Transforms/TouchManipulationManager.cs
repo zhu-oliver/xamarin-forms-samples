@@ -78,7 +78,6 @@ namespace SkiaSharpFormsDemos.Transforms
             {
                 scaleX = newVector.X / oldVector.X;
                 scaleY = newVector.Y / oldVector.Y;
-
             }
             else if (Mode == TouchManipulationMode.IsotropicScale || 
                      Mode == TouchManipulationMode.ScaleRotate ||

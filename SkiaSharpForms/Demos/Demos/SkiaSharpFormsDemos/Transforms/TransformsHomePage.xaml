@@ -118,6 +118,22 @@
             </TableSection>
 
             <TableSection Title="Touch Manipulations">
+
+                <TextCell Text="Bitmap Dragging"
+                          Detail="Use single-finger touch to drag a bitmap"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.BitmapDraggingPage}" />
+
+                <TextCell Text="Bitmap Scaling"
+                          Detail="Use double-finger pinch to scale and drag a bitmap"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.BitmapScalingPage}" />
+
+                <TextCell Text="Bitmap Rotation"
+                          Detail="Use two fingers to rotate, scale, and drag a bitmap"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.BitmapRotationPage}" />
+
                 <TextCell Text="Touch Manipulation"
                           Detail="Pan, scale, and rotate a bitmap"
                           Command="{Binding NavigateCommand}"
