@@ -45,14 +45,22 @@ namespace SkiaSharpFormsDemos.Transforms
             switch (args.Type)
             {
                 case TouchActionType.Pressed:
-                    // Find transformed bitmap rectangle
-                    SKRect rect = new SKRect(0, 0, bitmap.Width, bitmap.Height);
-                    rect = matrix.MapRect(rect);
-
-                    // Determine if the touch was within that rectangle
-                    if (rect.Contains(point) && !touchDictionary.ContainsKey(args.Id))
+                    if (!touchDictionary.ContainsKey(args.Id))
                     {
-                        touchDictionary.Add(args.Id, point);
+                        // Invert the matrix
+                        if (matrix.TryInvert(out SKMatrix inverseMatrix))
+                        {
+                            // Transform the point using the inverted matrix
+                            SKPoint transformedPoint = inverseMatrix.MapPoint(point);
+
+                            // Check if it's in the untransformed bitmap rectangle
+                            SKRect rect = new SKRect(0, 0, bitmap.Width, bitmap.Height);
+
+                            if (rect.Contains(transformedPoint))
+                            {
+                                touchDictionary.Add(args.Id, point);
+                            }
+                        }
                     }
                     break;
 
@@ -101,44 +109,21 @@ namespace SkiaSharpFormsDemos.Transforms
                             oldVector.X = magnitudeRatio * newVector.X;
                             oldVector.Y = magnitudeRatio * newVector.Y;
 
-                            float scaleX = Magnitude(newVector) / Magnitude(oldVector);
-                            float scaleY = scaleX;
+                            // Isotropic scaling!
+                            float scale = Magnitude(newVector) / Magnitude(oldVector);
 
-                        if (!float.IsNaN(scaleX) && !float.IsInfinity(scaleX) &&
-                            !float.IsNaN(scaleY) && !float.IsInfinity(scaleY))
-                        {
-                            SKMatrix.PostConcat(ref touchMatrix,
-                                SKMatrix.MakeScale(scaleX, scaleY, pivotPoint.X, pivotPoint.Y));
+                            if (!float.IsNaN(scale) && !float.IsInfinity(scale))
+                            {
+                                SKMatrix.PostConcat(ref touchMatrix,
+                                    SKMatrix.MakeScale(scale, scale, pivotPoint.X, pivotPoint.Y));
 
                                 SKMatrix.PostConcat(ref matrix, touchMatrix);
                                 canvasView.InvalidateSurface();
                             }
+                        }
 
-                        // return touchMatrix;
-                            //
-
-
-                        /*
-
-                                                    // Scaling factors are ratios of those
-                                                    float scaleX = newVector.X / oldVector.X;
-                                                    float scaleY = newVector.Y / oldVector.Y;
-
-                                                    if (!float.IsNaN(scaleX) && !float.IsInfinity(scaleX) &&
-                                                        !float.IsNaN(scaleY) && !float.IsInfinity(scaleY))
-                                                    {
-                                                        // If smething bad hasn't happened, calculate a scale and translation matrix
-                                                        SKMatrix scaleMatrix =
-                                                            SKMatrix.MakeScale(scaleX, scaleY, pivotPoint.X, pivotPoint.Y);
-
-                                                        SKMatrix.PostConcat(ref matrix, scaleMatrix);
-                                                        canvasView.InvalidateSurface();
-                                                    }
-                        */
-                    }
-
-                    // Store the new point in the dictionary
-                    touchDictionary[args.Id] = point;
+                        // Store the new point in the dictionary
+                        touchDictionary[args.Id] = point;
                     }
 
                     break;

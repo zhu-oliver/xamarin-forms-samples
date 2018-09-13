@@ -76,10 +76,10 @@ namespace SkiaSharpFormsDemos.Transforms
                             long[] keys = new long[touchDictionary.Count];
                             touchDictionary.Keys.CopyTo(keys, 0);
 
-                            // Find index non-moving (pivot) finger
+                            // Find index of non-moving (pivot) finger
                             int pivotIndex = (keys[0] == args.Id) ? 1 : 0;
 
-                            // Get the three points in the transform
+                            // Get the three points involved in the transform
                             SKPoint pivotPoint = touchDictionary[keys[pivotIndex]];
                             SKPoint prevPoint = touchDictionary[args.Id];
                             SKPoint newPoint = point;
