@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  version: '0.1.13'
+  title: 'ATS Channel API'
+  description: 'Open API Specification for All ATS APIs'
+  contact:
+    email: "avishek.somani@accenture.com"
+  license: 
+    name: "Accenture Confidential Information"
+    url: "http://api.abt.com/v1"
+
+servers:
+# Added by API Auto Mocking Plugin
+  - url: https://api{vendorID}.presto{environment}.com:{port}/v1/{appType}
+    variables:
+      vendorID:
+        default: pds
+        description: "Assigned Vendor ID"
+      appType:
+        enum:
+          - 'cuschannel'
+        default: 'cuschannel'
+        description: "DeviceType based on device capabilities"
+      port:
+        enum:
+          - '443'
+          - '8088'
+        default: '8088'
+      environment:
+        enum:
+          - 'build'
+          - 'pat'
+          - 'iit'
+          - 'preprod'
+          - 'prod'
+        default: 'build'
+    description: "API Server"
+    
+tags:
+  - name: "Fare"
+    description: "Everything to do with fare - payment, inspection, reversals"
+  - name: "Products"
+    description: "Everything to do with fare products - purchase, refund, reversals"
+  - name: "Media"
+    description: "This includes all the fare media APIs"
+  - name: "Debt"
+    description: "This includes all the APIs related to debt recovery"
+  - name: "Configurations"
+    description: "This includes all the config APIs"
+  - name: "Bulk"
+    description: "This includes capabilities to accept offline taps, reversals and inspections and create relevant events for respective event consumers"
+    
+paths:
+  /fare/pay:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/farepay'
+  /fare/reverse:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/farereverse'
+  /fare/inspection:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/fareinspection'
+  /fare/inspectionAction:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/fareinspectionaction'
+  /media/configure/profile:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureprofile'
+  /media/configure/identifiers:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureidentifiers'
+  /media/configure/revenueType:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigurerevenuetype'
+  /media/configure/failedInspectionsNbr:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigurefailedinspectionsnbr'
+  /media/get:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaget'
+  /media/getTransactionHistory:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagettransactionhistory'
+  /media/getLatestUsage:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetlatestusage'
+  /media/getInspections:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetinspections'
+  /media/getAssociatedMedia:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetassociatedmedia'
+  /media/lock:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/medialock'
+  /media/unlock:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaunlock'
+  /media/recoverDebt/auto:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtauto'
+  /media/recoverDebt/token:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebttoken'
+  /media/recoverDebt/manualInitiate:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtmanualinitiate'
+  /media/recoverDebt/manualResult:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtmanualresult'
+  /media/refund:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarefund'
+  /bulk/upload:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/bulkupload'
+  /bulk/getDenyList: 
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/bulkgetdenylist'
+ 
+  /product/getEligibleProducts:
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/productgeteligibleproducts'
