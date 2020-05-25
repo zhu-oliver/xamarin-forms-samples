@@ -43,8 +43,6 @@ tags:
     description: "This includes all the fare media APIs"
   - name: "Debt"
     description: "This includes all the APIs related to debt recovery"
-  - name: "Configurations"
-    description: "This includes all the config APIs"
     
 paths:
 
