@@ -37,8 +37,6 @@ servers:
     description: "API Server"
     
 tags:
-  - name: "Products"
-    description: "Everything to do with fare products - purchase, refund, reversals"
   - name: "Media"
     description: "This includes all the fare media APIs"
   - name: "Debt"
@@ -50,24 +48,14 @@ paths:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureprofile'
   /media/configure/identifiers:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureidentifiers'
-  /media/configure/revenueType:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigurerevenuetype'
-  /media/configure/failedInspectionsNbr:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigurefailedinspectionsnbr'
   /media/get:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaget'
   /media/getTransactionHistory:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagettransactionhistory'
   /media/getLatestUsage:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetlatestusage'
-  /media/getInspections:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetinspections'
   /media/getAssociatedMedia:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetassociatedmedia'
-  /media/lock:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/medialock'
-  /media/unlock:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaunlock'
   /media/recoverDebt/auto:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtauto'
   /media/recoverDebt/token:
@@ -76,8 +64,3 @@ paths:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtmanualinitiate'
   /media/recoverDebt/manualResult:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtmanualresult'
-  /media/refund:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarefund'
- 
-  /product/getEligibleProducts:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/productgeteligibleproducts'
