@@ -46,8 +46,6 @@ paths:
 
   /media/configure/profile:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureprofile'
-  /media/configure/identifiers:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureidentifiers'
   /media/get:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaget'
   /media/getTransactionHistory:
