@@ -37,8 +37,6 @@ servers:
     description: "API Server"
     
 tags:
-  - name: "Fare"
-    description: "Everything to do with fare - payment, inspection, reversals"
   - name: "Products"
     description: "Everything to do with fare products - purchase, refund, reversals"
   - name: "Media"
@@ -47,18 +45,9 @@ tags:
     description: "This includes all the APIs related to debt recovery"
   - name: "Configurations"
     description: "This includes all the config APIs"
-  - name: "Bulk"
-    description: "This includes capabilities to accept offline taps, reversals and inspections and create relevant events for respective event consumers"
     
 paths:
-  /fare/pay:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/farepay'
-  /fare/reverse:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/farereverse'
-  /fare/inspection:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/fareinspection'
-  /fare/inspectionAction:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/fareinspectionaction'
+
   /media/configure/profile:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaconfigureprofile'
   /media/configure/identifiers:
@@ -91,10 +80,6 @@ paths:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarecoverdebtmanualresult'
   /media/refund:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediarefund'
-  /bulk/upload:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/bulkupload'
-  /bulk/getDenyList: 
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/bulkgetdenylist'
  
   /product/getEligibleProducts:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/productgeteligibleproducts'
