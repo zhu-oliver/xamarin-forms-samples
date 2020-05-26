@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: '0.1.13'
-  title: 'ATS Channel API'
-  description: 'Open API Specification for All ATS APIs'
+  title: 'ATS Customer Channel API'
+  description: 'Open API Specification for ATS Customer Channel APIs'
   contact:
     email: "avishek.somani@accenture.com"
   license: 
