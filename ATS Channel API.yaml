@@ -47,9 +47,9 @@ paths:
   /media/get:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediaget'
   /media/getTransactionHistory:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/channelmediagettransactionhistory'
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagettransactionhistory'
   /media/getLatestUsage:
-    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/channelmediagetlatestusage'
+    $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetlatestusage'
   /media/getAssociatedMedia:
     $ref: 'https://api.swaggerhub.com/domains/ATS-Design/ATSDomain/0.1.13#/components/pathitems/mediagetassociatedmedia'
   /media/recoverDebt/auto:
